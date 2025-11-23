@@ -13,5 +13,5 @@ class DatabaseConfig:
     def database_url(self):
         return f"postgresql://{self.username}:{self.password}@{self.host}:{self.port}/{self.database}"
 
-# Создаем экземпляр конфигурации - ЭТА СТРОКА ДОЛЖНА БЫТЬ!
+
 db_config = DatabaseConfig()
