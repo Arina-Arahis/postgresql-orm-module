@@ -6,7 +6,7 @@ import random
 class UserCRUD:
     @staticmethod
     def get_user_count():
-        """Получение количества строк в таблице"""
+
         session = db_manager.get_session()
         try:
             return session.query(User).count()
@@ -15,7 +15,7 @@ class UserCRUD:
     
     @staticmethod
     def add_user(name: str, status: str):
-        """Добавление новой записи"""
+
         session = db_manager.get_session()
         try:
             user = User(name=name, status=status)
@@ -31,7 +31,7 @@ class UserCRUD:
     
     @staticmethod
     def get_users_paginated(page: int, page_size: int):
-        """Получение записей с пагинацией"""
+
         session = db_manager.get_session()
         try:
             offset = (page - 1) * page_size
@@ -42,7 +42,7 @@ class UserCRUD:
     
     @staticmethod
     def delete_user(user_id: int):
-        """Удаление записи по ID"""
+
         session = db_manager.get_session()
         try:
             user = session.query(User).filter(User.id == user_id).first()
@@ -59,7 +59,7 @@ class UserCRUD:
     
     @staticmethod
     def bulk_create_users(count: int = 100000):
-        """Создание 100k+ записей"""
+
         session = db_manager.get_session()
         try:
             statuses = ['active', 'inactive', 'pending', 'blocked']
